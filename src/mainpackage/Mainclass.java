@@ -12,8 +12,11 @@ public class Mainclass {
 	
 	public static void main(String[] args) throws InterruptedException, IOException {
 		// objects and variables instantiation
+		
+		Xls_AddParents excelcheck = new Xls_AddParents();
+		excelcheck.ExcelView();
         
-       // WebDriver obj = new ChromeDriver();
+     /*  // WebDriver obj = new ChromeDriver();
         
 		System.setProperty("webdriver.chrome.driver","F:\\Automation-Test\\Projects\\Drivers\\chromedriver.exe");
 		 obj = new ChromeDriver();
@@ -36,14 +39,14 @@ public class Mainclass {
 			// TODO Auto-generated catch block
 			
 			e.printStackTrace();
-			obj.close();
+			
 		}
     		
-    /*  //////////////  Menu navigation testing  //////////////////////////////
+     //////////////  Menu navigation testing  //////////////////////////////
 	    Login navigationtest = new Login();
 	   
 	    navigationtest.Menunavigationcheck();
-	    */	
+	    	
     	 ///////////// ADDING PARENT ////////////////
     	Parent addparent = new Parent();
     	 try{
@@ -54,19 +57,30 @@ public class Mainclass {
  			// TODO Auto-generated catch block
  			
  			e1.printStackTrace();
- 			obj.close();
+    	 }	
+ 			
+ 	///////////// Search & EDIT Parent ///////////////////////////
+ 			Parent Searchfunc = new Parent();
+ 	        Searchfunc.search();	
+ 	 		
+ 	    	Parent EditParentobj = new Parent();
+ 	    	EditParentobj.Editparent();
+  	    	 
+ 	 	
 
+ 	 			
     ////////////////// Logout is Called begins ///////////////////////////////////
 	    Logout logouttest =new Logout();
 	    logouttest.logout();
 	    System.out.println("System is log out - Ghar Jao!!");
 	    Thread.sleep(10000);
-	    obj.close();
+	    
     
 	 /////////////////////////////////////////////////////
-	    
+	    */
 	   
 }
 	
 }
-}
+
+

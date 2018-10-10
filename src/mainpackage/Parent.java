@@ -4,11 +4,14 @@ package mainpackage;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 
 
+@SuppressWarnings("unused")
 public class Parent extends Mainclass {
-	
+	private String FName;
+	private String LName;
 	public void Addnewparent()  throws InterruptedException, IOException{
 		// ADDDING NEW Parent 
 		
@@ -17,9 +20,12 @@ public class Parent extends Mainclass {
 		obj.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div/div/div[2]/div[2]/ul/li[3]/div")).click();		
 		
 		/// Adding field Values in Add Parent section
-		obj.findElement(By.xpath("//*[@name='FirstName']")).sendKeys("Rohit Test");
-		obj.findElement(By.xpath("//*[@name='LastName']")).sendKeys("Automation");
-		obj.findElement(By.xpath("//*[@name='Email']")).sendKeys("rohitautomation2@gmail.com");
+		obj.findElement(By.xpath("//*[@name='FirstName']")).sendKeys("Rohit");
+		 this.FName= obj.findElement(By.xpath("//*[@name='FirstName']")).getAttribute("value");
+		 System.out.println(FName);
+		 obj.findElement(By.xpath("//*[@name='LastName']")).sendKeys("Automation");
+		 this.LName = obj.findElement(By.xpath("//*[@name='LastName']")).getAttribute("value");
+		obj.findElement(By.xpath("//*[@name='Email']")).sendKeys("rohitautomation10@gmail.com");
 		obj.findElement(By.xpath("//*[@id='Password']")).sendKeys("123456");
 		obj.findElement(By.xpath("//*[@id='Phone']")).sendKeys("1234567890");
 		Thread.sleep(3000);
@@ -93,7 +99,14 @@ public class Parent extends Mainclass {
 		System.out.println("User Created Successfully :- "+EmailAddress);*/
 		
 	    public void search(){
-		System.out.println("Here search cases are written");
+	
+		System.out.println("Here Edit parent Test Case Starts");
+		obj.findElement(By.xpath("//*[contains(text(),'Parents')]")).click();
+		obj.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		obj.findElement(By.xpath("//*[@id='search-input']")).sendKeys(this.FName+" "+this.LName);	
+		System.out.println(this.FName+" "+this.LName);
+		obj.findElement(By.xpath("//*[@type='button']")).click();
+		obj.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
 		
 		
 		}
@@ -101,28 +114,27 @@ public class Parent extends Mainclass {
 
 		
 		public void Editparent() throws InterruptedException{
-			
-		System.out.println("Here Edit parent Test Case Starts");
-		obj.findElement(By.xpath("//*[contains(text(),'Parents')]")).click();
-		obj.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		obj.findElement(By.xpath("/html/body/div/div[2]/div[2]/div/div/div/div/div[2]/div[2]/ul/li[3]/div")).click();		
+		
+		/// Selecting parent from grid : To edit parent fields  
+		obj.findElement(By.xpath("//*[@id='grid']/table/tbody/tr[1]/td[4]/div[1]/a[2]/i")).click();	
+		
 		
 		/// Adding field Values in Add Parent section
-		obj.findElement(By.xpath("//*[@name='FirstName']")).sendKeys("Rohit Test");
+		obj.findElement(By.xpath("//*[@name='FirstName']")).sendKeys("Rohit Test Edited");
 		obj.findElement(By.xpath("//*[@name='LastName']")).sendKeys("Automation");
-		obj.findElement(By.xpath("//*[@name='Email']")).sendKeys("rohitautomation2@gmail.com");
-		obj.findElement(By.xpath("//*[@id='Password']")).sendKeys("123456");
-		obj.findElement(By.xpath("//*[@id='Phone']")).sendKeys("1234567890");
+	
+
+		obj.findElement(By.xpath("//*[@id='Phone']")).sendKeys("0123456789");
 		Thread.sleep(3000);
 		obj.findElement(By.xpath("//*[@type='submit']")).click();
 		Thread.sleep(3000);
 	    String Pagetitle =obj.getTitle();
 	    if (Pagetitle.contentEquals("Parent Management"))
 		{
-	    	System.out.println("Edit existing Parent is - PASSED");}
+	    	System.out.println("Edit Parent test case is - PASSED");}
 		else
 		{
-			System.out.println("Edit existing Parent is - FAILED"); 
+			System.out.println("Edit Parent test case is - FAILED"); 
 			
 			
 		}
@@ -130,14 +142,14 @@ public class Parent extends Mainclass {
 		}
 		
 		public void AssignStudents(){
-		System.out.println("Here AssignStudents cases ar e written");	
+		System.out.println("Here AssignStudents cases are written");	
 		}
 		
 		
 		
 		public void advancesearch()
 		{
-		System.out.println("Here advancesearch cases are written");
+		System.out.println("Here advance search cases are written");
 		
 	    }
 	
