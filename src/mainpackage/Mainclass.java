@@ -13,9 +13,7 @@ public class Mainclass {
 	public static void main(String[] args) throws InterruptedException, IOException {
 		// objects and variables instantiation
 		
-		Xls_AddParents excelcheck = new Xls_AddParents();
-		excelcheck.ExcelView();
-        
+		
      /*  // WebDriver obj = new ChromeDriver();
         
 		System.setProperty("webdriver.chrome.driver","F:\\Automation-Test\\Projects\\Drivers\\chromedriver.exe");
@@ -69,7 +67,7 @@ public class Mainclass {
  	 	
 
  	 			
-    ////////////////// Logout is Called begins ///////////////////////////////////
+    ////////////////// Logout is test begins ///////////////////////////////////
 	    Logout logouttest =new Logout();
 	    logouttest.logout();
 	    System.out.println("System is log out - Ghar Jao!!");

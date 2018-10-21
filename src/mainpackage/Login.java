@@ -11,15 +11,7 @@ import org.openqa.selenium.By;
 
 
 public class Login extends Mainclass {
-	/*private boolean isElementPresent(By by) {
-		  try {
-		    obj.findElement(by);
-		    return true;
-		  } catch (NoSuchElementException e) {
-		    return false;
-		  }
-		}
-  */
+	
 	
 	public void logincredentails() throws IOException, InterruptedException{
 	
